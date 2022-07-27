@@ -1,6 +1,6 @@
 {
   "name": "@vanhuy170496/react-native-photo-editor",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "🌄 Image editor using native modules for iOS and Android",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/vanhuy170496/react-native-photo-editor#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/@vanhuy170496"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
