@@ -7,7 +7,7 @@ import sizes from '../../../themes/sizes';
 import images from '../../../assets/images';
 
 const AVATAR_URL =
-  'https://raw.githubusercontent.com/baronha/react-native-photo-editor/dev/example/src/assets/images/david.png';
+  'https://raw.githubusercontent.com/vanhuy170496/react-native-photo-editor/dev/example/src/assets/images/david.png';
 
 const Header = () => {
   return (
