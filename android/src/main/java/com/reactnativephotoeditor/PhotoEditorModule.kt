@@ -43,14 +43,15 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
       if (requestCode == EDIT_SUCCESSFUL) {
         when (resultCode) {
           ResponseCode.RESULT_OK -> {
-            val path = intent.getStringExtra("path")
-            promise?.resolve("file://$path")
+            val _path = intent?.getStringExtra("path")
+            val _type = intent?.getStringExtra("type")
+            promise?.resolve( "$_type||||file://$_path");
           }
           ResponseCode.RESULT_CANCELED -> {
             promise?.reject("USER_CANCELLED", "User has cancelled", null)
           }
           ResponseCode.LOAD_IMAGE_FAILED -> {
-            val path = intent.getStringExtra("path")
+            val path = intent?.getStringExtra("path")
             promise?.reject("LOAD_IMAGE_FAILED", "Load image failed: $path", null)
           }
 

@@ -1,4 +1,4 @@
-package com.reactnativephotoeditor.activity.tools;
+package com.worksite.activity.tools;
 
 /**
  * @author <a href="https://github.com/burhanrashid52">Burhanuddin Rashid</a>
@@ -7,6 +7,7 @@ package com.reactnativephotoeditor.activity.tools;
  */
 public enum ToolType {
   SHAPE,
+  CROP,
   ERASER,
   FILTER,
   TEXT,

@@ -260,14 +260,14 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
   }
 
-  private fun saveImage() {
+  private fun saveImage(type: String = "save") {
     val fileName = System.currentTimeMillis().toString() + ".png"
     val hasStoragePermission = ContextCompat.checkSelfPermission(
       this,
       Manifest.permission.WRITE_EXTERNAL_STORAGE
     ) == PackageManager.PERMISSION_GRANTED
     if (hasStoragePermission || isSdkHigherThan28()) {
-      showLoading("Saving...")
+      if (type != "crop") showLoading("Saving...")
       val path: File = Environment.getExternalStoragePublicDirectory(
         Environment.DIRECTORY_PICTURES
       )
@@ -279,6 +279,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
           hideLoading()
           val intent = Intent()
           intent.putExtra("path", imagePath)
+          intent.putExtra("type", type)
           setResult(ResponseCode.RESULT_OK, intent)
           finish()
         }
@@ -359,6 +360,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         mPhotoEditor!!.setShape(mShapeBuilder)
         mTxtCurrentTool!!.setText(R.string.label_shape)
         showBottomSheetDialogFragment(mShapeBSFragment)
+      }
+      ToolType.CROP -> {
+        saveImage("crop")
       }
       ToolType.TEXT -> {
         val textEditorDialogFragment = TextEditorDialogFragment.show(this)
