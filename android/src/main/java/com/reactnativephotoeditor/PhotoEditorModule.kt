@@ -39,7 +39,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
   }
 
   private val mActivityEventListener: ActivityEventListener = object : BaseActivityEventListener() {
-    override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, intent: Intent?) {
       if (requestCode == EDIT_SUCCESSFUL) {
         when (resultCode) {
           ResponseCode.RESULT_OK -> {
